@@ -1,0 +1,63 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "import/no-named-as-default-member": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/*.stories.js"
+        ],
+        "optionalDependencies": false
+      }
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": 0,
+    "react/jsx-sort-props": "error",
+    "react/sort-prop-types": [
+      "error",
+      {
+        "requiredFirst": true
+      }
+    ],
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 0,
+    "import/prefer-default-export": 0,
+    "import/no-named-as-default": 0,
+    "react/no-unused-prop-types": 0
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "console": true,
+    "__REDUX_DEVTOOLS_EXTENSION__": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+    "jest": true,
+    "resolveOwn": true,
+    "fetch": true
+  }
+}

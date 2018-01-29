@@ -1,0 +1,17 @@
+.sample {
+    .menu-holder {
+        top: 30px;
+    }
+    .main-container {
+        .page-heading {
+            margin: 0px;
+            padding-left: 15px;
+            h1 {
+                font-size: 40px;
+            }
+        }
+        .sample-pagination {
+            margin: auto;
+        }
+    }
+}
