@@ -6,7 +6,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <Navbar expanded={false} fixedTop fluid>
+      <Navbar className="justlearn-header" expanded={false} fixedTop fluid>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#home">React-Bootstrap</a>
@@ -16,13 +16,13 @@ export default class Header extends Component {
         <Navbar.Collapse>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">
-              Link Right
+              About
       </NavItem>
             <NavItem eventKey={2} href="#">
-              Link Right
+              Help
       </NavItem>
             <NavItem eventKey={1} href="#">
-              Link Right
+              Contact us
       </NavItem>
           </Nav>
         </Navbar.Collapse>

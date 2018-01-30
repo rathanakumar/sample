@@ -1,16 +1,25 @@
-.sample {
+.justlearn {
+    .justlearn-header {
+        border-top: 2px solid rgb(5, 179, 248);
+    }
     .menu-holder {
-        top: 30px;
+        top: 43px;
+    }
+    .recent-notification {
+        margin-top: 43px;
     }
     .main-container {
         .page-heading {
-            margin: 0px;
-            padding-left: 15px;
+            margin: 5px 0 0 0;
+            border: none;
             h1 {
                 font-size: 40px;
+                small {
+                    border-bottom: 2px solid rgb(5, 179, 248);
+                }
             }
         }
-        .sample-pagination {
+        .justlearn-pagination {
             margin: auto;
         }
     }
