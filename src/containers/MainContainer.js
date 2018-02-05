@@ -1,11 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Pagination from 'react-js-pagination';
 import { PageHeader, Panel } from 'react-bootstrap';
+import { getQuestions } from '../store/actions/Questions';
 
-export default class MainContainer extends Component {
+class MainContainer extends Component {
   componentDidMount() {
+    this.props.fetchQuestions();
   }
 
+  renderQuestions = () => {
+    const { questions } = this.props;
+    return (
+      questions.question ?
+        <Panel id="collapsible-panel-example-2" defaultExpanded>
+          <Panel.Heading>
+            <Panel.Title toggle>
+              {questions.questions}
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Collapse>
+            <Panel.Body>
+              <span>{questions.option1}</span>
+              <span>{questions.option2}</span>
+              <span>{questions.option3}</span>
+              <span>{questions.option4}</span>
+            </Panel.Body>
+            <Panel.Footer>
+              <span>Answer: </span>
+              <span>{questions.answer}</span>
+            </Panel.Footer>
+          </Panel.Collapse>
+        </Panel> : null
+    );
+  }
   render() {
     return (
       <div className="main-container">
@@ -13,28 +42,7 @@ export default class MainContainer extends Component {
           <small>Subtext for header</small>
         </PageHeader>
         <div>
-          <Panel id="collapsible-panel-example-2" defaultExpanded>
-            <Panel.Heading>
-              <Panel.Title toggle>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
-            </Panel.Title>
-            </Panel.Heading>
-            <Panel.Collapse>
-              <Panel.Body>
-                <span>Sample 1</span>
-                <span>Sample 2</span>
-                <span>Sample 3</span>
-                <span>Sample 4</span>
-              </Panel.Body>
-              <Panel.Footer>
-                <span>Sample 1</span>
-                <span>Sample 2</span>
-              </Panel.Footer>
-            </Panel.Collapse>
-          </Panel>
+
           <div className="justlearn-pagination text-center">
             <Pagination
               activePage={1}
@@ -50,3 +58,16 @@ export default class MainContainer extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    questions: state.questions.questions,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchQuestions: bindActionCreators(getQuestions, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
